@@ -9,8 +9,8 @@ public class Train extends Transport{
     private  String endingStation;
     private  int numberOfWagons;
 
-    public Train(String brand, String model, Integer year, String country, String color, int maxSpeed, float tripPrice, float travelTime, String departureStations, String endingStation, int numberOfWagons) {
-        super(brand, model, year, country, color, maxSpeed);
+    public Train(String brand, String model, Integer year, String country, String color, int maxSpeed, float fuelPercentage, float tripPrice, float travelTime, String departureStations, String endingStation, int numberOfWagons) {
+        super(brand, model, year, country, color, maxSpeed, fuelPercentage);
         setTripPrice (tripPrice);
         setTravelTime(travelTime);
         setDepartureStations(departureStations);
@@ -67,5 +67,11 @@ public class Train extends Transport{
                 " ч., курсирует " + departureStations +
                 " " + endingStation +
                 ", в составе поезда " + numberOfWagons+" вагонов.";
+    }
+
+    @Override
+    public void refill() {
+        System.out.println("Заправить дизелем.");
+        fuelPercentage=100.00f;
     }
 }

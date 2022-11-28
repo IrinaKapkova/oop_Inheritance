@@ -16,13 +16,20 @@ public class Car extends Transport {
         }
     }
 
-    public Car(String brand, String model, Integer year, String country, String color, int maxSpeed, float engineVolume) {
-        super(brand, model, year, country, color, maxSpeed);
+    public Car(String brand, String model, Integer year, String country, String color, int maxSpeed,float fuelPercentage, float engineVolume) {
+        super(brand, model, year, country, color, maxSpeed, fuelPercentage);
         setEngineVolume(engineVolume);
     }
     @Override
     public String toString () {
         return "Автомобиль " + getBrand() + " " + getModel() + ", " + getYear() +
                 " года выпуска, сборка в " + getCountry() + ", " + getColor() + " цвета, объем двигателя: " + getEngineVolume() + " л.";
+    }
+
+    @Override
+    public void refill() {
+        System.out.println("Заправлять бензином, дизелем на заправке " +
+                "или заряжать на специальных электропарковках, если это электрокар");
+        fuelPercentage=100.00f;
     }
 }

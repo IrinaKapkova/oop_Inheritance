@@ -2,10 +2,9 @@ package transport;
 
 import java.time.LocalDate;
 
-import static transport.ValidateUtils.validateInteger;
-import static transport.ValidateUtils.validateString;
+import static transport.ValidateUtils.*;
 
-public class Transport {
+public abstract class Transport {
     private  String  brand;
     private  String model;
     private  final Integer year;
@@ -13,9 +12,11 @@ public class Transport {
     private  String color;
     private  int maxSpeed;
 
+    protected float fuelPercentage;
+
     String attention = "default";
 
-    public Transport(String brand, String model, Integer year, String country, String color, int maxSpeed) {
+    public Transport(String brand, String model, Integer year, String country, String color, int maxSpeed, float fuelPercentage) {
 
         setBrand(brand);
         setModel(model);
@@ -23,8 +24,16 @@ public class Transport {
         this.country = validateString(country, attention);
         setColor(color);
         setMaxSpeed(maxSpeed);
+        setFuelPercentage(fuelPercentage);
     }
 
+    public float getFuelPercentage() {
+        return fuelPercentage;
+    }
+
+    public void setFuelPercentage(float fuelPercentage) {
+        this.fuelPercentage = validateFloat2(fuelPercentage);
+    }
 
     public String getBrand() {
         return brand;
@@ -65,7 +74,11 @@ public class Transport {
         return LocalDate.now().getYear()-year;
     }
     public String toString () {
-        return " " + getBrand() + " модель " + getModel() + ", " + getYear() +
-                " года выпуска, сборка в " + getCountry() + ", " + getColor() + " цвета";
+        return String.format(" %s модель %s  %4d года выпуска, сборка в %s  %s цвета. Количество топлива %,3.2f процентов\n", getBrand(), getModel(), getYear(),getCountry(),getColor(), fuelPercentage);
     }
+    public static float validateFloat2 (float value) {
+        return value<=100.00f &&value>=0.00f? value: 0.00f;
+    }
+    public abstract void refill();
+
 }
