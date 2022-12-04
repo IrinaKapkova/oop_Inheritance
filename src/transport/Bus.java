@@ -1,17 +1,41 @@
 package transport;
 
-public class Bus extends Transport{
-    public Bus(String brand, String model, Integer year, String country, String color, int maxSpeed, float fuelPercentage) {
-        super(brand, model, year, country, color, maxSpeed, fuelPercentage);
+import static transport.ValidateUtils.getRandomInt;
+
+public class Bus extends Transport implements Competing {
+    public Bus(String brand, String model, float engineVolume) {
+        super(brand, model, engineVolume);
     }
 
     @Override
     public String toString() {
-        return "Автобус "+super.toString();
+        return "Автобус " + super.toString();
     }
 
-    public void refill() {
-        System.out.println("Заправлять бензином или дизелем на заправке");
-        fuelPercentage=100.00f;
+    @Override
+    public void startMoving() {
+        System.out.printf("%s %s начинает движение  \n", getBrand(), getModel());
     }
+
+    @Override
+    public void finishTheMove() {
+        System.out.printf("%s %s заканчивает движение  \n", getBrand(), getModel());
+
+    }
+    @Override
+    public void pitStop() {
+        System.out.printf("%s %s на пит-стопе \n", getBrand(), getModel());
+    }
+
+    @Override
+    public void getBestTimeLap() {
+        System.out.println("У "+getBrand()+" "+getModel() +"лучшее время круга " + getRandomInt(1,17) + " минут "+ getRandomInt(0,59) + " секунд");
+    }
+
+    @Override
+    public void getMaxSpeed() {
+        System.out.println("У "+getBrand()+" "+getModel() +"максимальная скорость  достигла " + getRandomInt(100,100) + " км в час");
+    }
+
 }
+
