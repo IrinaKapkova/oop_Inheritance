@@ -14,4 +14,7 @@ public class ValidateUtils {
     public static int validateInt (int value, int value2) {
         return value<=0? value2: value;
     }
+    public static int getRandomInt(int volue1, int volue2) {
+        return (int) (volue1+Math.random() * volue2);
+    }
 }
