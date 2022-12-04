@@ -47,16 +47,22 @@ public class MainAnimal {
         alreadyFreshwater.PrintInfo3();
         Flightless peacock = new Flightless("павлин",2,"вольер","всеядный");
         System.out.println(peacock);
+        peacock.PrintInfo4();
         Flightless penguin = new Flightless("пингвин",2,"океан","рыба");
         System.out.println(penguin);
+        penguin.PrintInfo4();
         Flightless dodo = new Flightless("Птица Додо",1,"Остров Маврикий в Индийском океане","фркукты");
         System.out.println(dodo);
+        dodo.PrintInfo4();
         Flying seagull=new Flying("чайка",2,"море", "рыба");
         System.out.println(seagull);
+        seagull.PrintInfo5();
         Flying albatross =new Flying("альбатрос ",2,"море", "рыба");
         System.out.println(albatross );
+        albatross.PrintInfo5();
         Flying falcon=new Flying("сокол",3,"степь", "грызуны");
         System.out.println(falcon);
+        falcon.PrintInfo5();
 
     }
 

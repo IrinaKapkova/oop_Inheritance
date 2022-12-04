@@ -51,6 +51,13 @@ public class Flightless extends Bird{
     public int hashCode() {
         return Objects.hash(super.hashCode(), movementType);
     }
+    public String PrintInfo4() {
+        eat();
+        sleep();
+        move();
+        walk();
+        return null;
+    }
 
     @Override
     public String toString() {

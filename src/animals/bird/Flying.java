@@ -51,7 +51,13 @@ public class Flying extends Bird{
     public int hashCode() {
         return Objects.hash(super.hashCode(), movementType);
     }
-
+    public String PrintInfo5() {
+        eat();
+        sleep();
+        move();
+        fly();
+        return null;
+    }
     @Override
     public String toString() {
         return "Я летающая птица отношусь к животным " +getNickname()+"\n"+
